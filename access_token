@@ -1,0 +1,1 @@
+curl -F 'client_id=58afe6a207db45a0a4c709a6ce8fff0a' -F 'client_secret=1d846b34d9b743b5b68d303e41eeeb57' -F 'grant_type=authorization_code' -F 'redirect_uri=https://food-print.herokuapp.com/' -F 'code=CODE' https://api.instagram.com/oauth/access_token
