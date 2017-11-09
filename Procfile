@@ -1,1 +1,1 @@
-web: gunicorn foodprint.wsgi --log-file - 
+web: gunicorn app:app
