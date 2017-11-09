@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request #from --> model of something, library  of code which is Flask this time
 import requests #request is like flask, library
 
-app = Flask("MyApp") #import  Setting up the internal of the web server, app is the variable (a flask)
+app = Flask(__name__) #import  Setting up the internal of the web server, app is the variable (a flask)
 
 @app.route("/") 
 def hello():   
@@ -36,4 +36,5 @@ def sign_up():
               ) 
 	return "Thanks for submitting!" 
 
-app.run(debug=True) 
+if __name__ == '__main__':
+	app.run(debug=True) 
