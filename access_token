@@ -1,1 +1,17 @@
 curl -F 'client_id=58afe6a207db45a0a4c709a6ce8fff0a' -F 'client_secret=1d846b34d9b743b5b68d303e41eeeb57' -F 'grant_type=authorization_code' -F 'redirect_uri=https://food-print.herokuapp.com/' -F 'code=CODE' https://api.instagram.com/oauth/access_token
+
+
+endpoint = "https://api.instagram.com/v1/locations/search?lat=48.858844&lng=2.294351&access_token=ACCESS-TOKEN"
+	endpoint = "https://api.instagram.com/v1/locations/{location-id}/media/recent?access_token=ACCESS-TOKEN"
+
+
+content = "<h2>Location Recent Media</h2>"
+	try:
+		api = client.InstagramAPI(access_token="2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a",client_secret=CONFIG['client_secret'])
+        recent_media, next = api.location_recent_media(location_id=213385402)
+        photos = []
+        for media in recent_media:
+            photos.append('<img src="%s"/>' % media.get_standard_resolution_url())
+        content += ''.join(photos)
+    print media.caption.text 
+    return "%s %s <br/>Remaining API Calls = %s/%s" % (get_nav(),content,api.x_ratelimit_remaining,api.x_ratelimit)
