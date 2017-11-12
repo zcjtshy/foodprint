@@ -1,5 +1,4 @@
 import googlemaps
-import responses 
 
 key='AIzaSyDvYLab-gkkGiOZHGvzFMTWUYgFmoDp3WE'    #Google Maps Geocoding API key
 
