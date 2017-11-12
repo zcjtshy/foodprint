@@ -49,7 +49,7 @@ def location_recent_media():
     	Presp = JSON.Parse (resp.body)
     	print Presp.data[0].id 
 
-location=raw_input("Enter location.\n")
+location=raw_input("Enter location")
 c=coordinates(location)
 lat=str(c[0])
 lng=str(c[1])
