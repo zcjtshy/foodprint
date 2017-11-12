@@ -1,5 +1,5 @@
-from geolocation.main import GoogleMaps 
-from geolocation.distance_matrix.client import DistanceMatrixApiClient 
+import googlemaps
+import responses 
 
 key='AIzaSyDvYLab-gkkGiOZHGvzFMTWUYgFmoDp3WE'    #Google Maps Geocoding API key
 
