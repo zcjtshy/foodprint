@@ -6,24 +6,13 @@ from instagram.client import InstagramAPI
 
 app = Flask(__name__) #import  Setting up the internal of the web server, app is the variable (a flask)
 
-@app.route("/") 
-def hello():
-	return "Hello World"
-
+@app.route("/",strict_slashes=False) 
+def foodprint_website():
+	return render_template("index.html")
 	 
 @app.route("/index/<NumberOfIndex>/<hello>")  
 def index(NumberOfIndex, hello):
 	return int(NumberOfIndex)*hello 
-
-
-@app.route("/foodprint/<name>", strict_slashes=False) 
-def foodprint_website(name):
-	return render_template("index.html", name=name)
-
-
-@app.route("/foodprint", strict_slashes=False)
-def foodprint_website2():
-	return render_template("index.html")
 
 @app.route('/location_recent_media')
 def location_recent_media(lat,lng):
