@@ -4,6 +4,8 @@ import json
 from geoloc import coordinates 
 from instagram.client import InstagramAPI
 
+access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
+
 CONFIG = {
     'client_id': '58afe6a207db45a0a4c709a6ce8fff0a',
     'client_secret': '1d846b34d9b743b5b68d303e41eeeb57',
@@ -39,21 +41,17 @@ c=coordinates(location)
 lat=str(c[0])
 lng=str(c[1])
 
-def location_recent_media():
+def location_recent_media(lat,lng):
 	url="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+Ing+"&access_token="+access_token
 	print url
-	r=requests.get(url)
-	resp=jason.loads(r.text)
-	for i in range(10):
-		pic_url=resp['data'][i]['images']['standard_resolution']['url']
-		p=requests.get(pic_url)
-		f_name=str(location)+'pic'+str(i)+'.jpg'
-    	with open(f_name,'wb') as f:
-    		f.write(p.content)
-    		f.close()
-    	print "got one"
-    	Presp = JSON.Parse (resp.body)
-    	print Presp.data[0].id 
+	response = requests.get(url)
+	data = json.loads(response.text)
+	print data
+	return data
+
+lat = str(location_coords[0])
+lng = str(location_coords[1])
+location_recent_media(lat,lng)
 
 	#access_token = request.session["2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a"]
 	
