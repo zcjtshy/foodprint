@@ -4,14 +4,6 @@ import json
 from geoloc import coordinates 
 from instagram.client import InstagramAPI
 
-access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
-
-CONFIG = {
-    'client_id': '58afe6a207db45a0a4c709a6ce8fff0a',
-    'client_secret': '1d846b34d9b743b5b68d303e41eeeb57',
-    'redirect_uri': 'https://food-print.herokuapp.com',
-    'access_token':'2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'}
-
 app = Flask(__name__) #import  Setting up the internal of the web server, app is the variable (a flask)
 
 @app.route("/") 
@@ -33,15 +25,9 @@ def foodprint_website(name):
 def foodprint_website2():
 	return render_template("index.html")
 
-
 @app.route('/location_recent_media')
-
-location=raw_input("Enter location")
-c=coordinates(location)
-lat=str(c[0])
-lng=str(c[1])
-
 def location_recent_media(lat,lng):
+	access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
 	url="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+Ing+"&access_token="+access_token
 	print url
 	response = requests.get(url)
@@ -49,12 +35,13 @@ def location_recent_media(lat,lng):
 	print data
 	return data
 
-lat = str(location_coords[0])
-lng = str(location_coords[1])
-location_recent_media(lat,lng)
-
-	#access_token = request.session["2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a"]
-	
+@app.route('/example_data')
+def example_data():
+	location = "London"
+	location_coords = coordinates(location)
+	lat = str(location_coords[0])
+	lng = str(location_coords[1])
+	location_recent_media(lat, lng)
 
 @app.route("/signup", methods=["POST"])
 def sign_up():
