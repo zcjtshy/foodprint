@@ -33,6 +33,12 @@ def foodprint_website2():
 
 
 @app.route('/location_recent_media')
+
+location=raw_input("Enter location")
+c=coordinates(location)
+lat=str(c[0])
+lng=str(c[1])
+
 def location_recent_media():
 	url="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+Ing+"&access_token="+access_token
 	print url
@@ -48,13 +54,6 @@ def location_recent_media():
     	print "got one"
     	Presp = JSON.Parse (resp.body)
     	print Presp.data[0].id 
-
-#location=raw_input("Enter location")
-#c=coordinates(location)
-#lat=str(c[0])
-#lng=str(c[1])
-
-
 
 	#access_token = request.session["2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a"]
 	
