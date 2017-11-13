@@ -24,7 +24,7 @@ def location_recent_media(lat,lng):
 	print data
 	return data
 
-@app.route('/example_data'/<lat>/<lng>')
+@app.route('/example_data/<lat>/<lng>')
 def example_data():
 	location = "London"
 	location_coords = coordinates(location)
