@@ -21,7 +21,8 @@ def location_recent_media(lat,lng):
 	print url
 	response = requests.get(url)
 	data = json.loads(response.text)
-	data['images']['standard_resolution']['url']
+	print data
+	return data['images']['standard_resolution']['url']
 
 @app.route('/example_data/')
 def example_data():
