@@ -21,9 +21,12 @@ def location_recent_media(lat,lng):
 	print url
 	response = requests.get(url)
 	data = json.loads(response.text)
-	data['images']['standard_resolution']['url']
+	for photo in data:
+		try:
+			print photo ['images']['standard_resolution']['url']
+		except KeyError:
+			continue 
 		
-
 @app.route('/example_data/')
 def example_data():
 	location = "London"
