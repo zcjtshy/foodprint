@@ -1,0 +1,13 @@
+span {
+font-family: 'Kaushan Script', cursive;
+font-size: 90px;
+color: black;
+text-align: center;
+position: relative;
+}
+subtitle {
+  font-family: serif;
+  font-size: 30px;
+  color: black;
+  text-align: center;
+}
