@@ -20,9 +20,9 @@ def location_recent_media(lat,lng):
 	url="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&access_token="+access_token
 	print url
 	response = requests.get(url)
-	data = json.loads('response.text')
-	print data
-	return data
+	data = json.loads(response.text)
+	print data['images']['standard_resolution']['url']
+	return data['images']['standard_resolution']['url']
 
 @app.route('/example_data/')
 def example_data():
