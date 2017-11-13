@@ -14,7 +14,7 @@ def foodprint_website():
 def index(NumberOfIndex, hello):
 	return int(NumberOfIndex)*hello 
 
-@app.route('/location_recent_media,/<lat>/<lng>')
+@app.route('/location_recent_media/<lat>/<lng>')
 def location_recent_media(lat,lng):
 	access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
 	url="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&access_token="+access_token
