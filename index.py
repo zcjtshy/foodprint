@@ -14,21 +14,26 @@ def foodprint_website():
 def index(NumberOfIndex, hello):
 	return int(NumberOfIndex)*hello 
 
-@app.route('/location_recent_media/<lat>/<lng>')
-def location_recent_media(lat,lng):
+@app.route('/location_recent_media', methods=["GET"])
+def location_recent_media():
+	lat="51.507114863624"
+	lng="-0.12731805236353"
 	access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
-	url="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&access_token="+access_token
-	print url
-	r = requests.get(url)
+	endpoint="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&access_token="+access_token
+	r = requests.get(endpoint)
 	data = json.loads(r.text)
+	#for img in data['data']:
+		#if data['data']['id'] > 1:
+	return data['data'][0]['images']['standard_resolution']['url']
 	
+
+	#image = data['data'][0]['images']['standard_resolution']['url']
 	#return data['images']['standard_resolution']['url']
 				
 	#print data
 	#return ['data']['meta']['code']
 	#data['images']['standard_resolution']['url']
-	 
-		
+	 		
 @app.route('/example_data/')
 def example_data():
 	location = "London"

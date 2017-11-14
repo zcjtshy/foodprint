@@ -2,7 +2,7 @@ curl -F 'client_id=58afe6a207db45a0a4c709a6ce8fff0a' -F 'client_secret=1d846b34d
 
 
 endpoint = "https://api.instagram.com/v1/locations/search?lat=48.858844&lng=2.294351&access_token=ACCESS-TOKEN"
-	endpoint = "https://api.instagram.com/v1/locations/{location-id}/media/recent?access_token=ACCESS-TOKEN"
+endpoint = "https://api.instagram.com/v1/locations/{location-id}/media/recent?access_token=ACCESS-TOKEN"
 
 
 content = "<h2>Location Recent Media</h2>"
@@ -15,3 +15,12 @@ content = "<h2>Location Recent Media</h2>"
         content += ''.join(photos)
     print media.caption.text 
     return "%s %s <br/>Remaining API Calls = %s/%s" % (get_nav(),content,api.x_ratelimit_remaining,api.x_ratelimit)
+
+@app.route('/location_recent_media/<lat>/<lng>')
+def location_recent_media(lat,lng):
+	access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
+	url="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&access_token="+access_token
+	print url
+	r = requests.get(url)
+	data = json.loads(r.text)
+	print(data['data'][0]['images']['standard_resolution']['url'])
