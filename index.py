@@ -2,6 +2,8 @@ from flask import Flask, render_template, request #from --> model of something, 
 import requests #request is like flask, library
 import json
 from geoloc import coordinates 
+import urllib, urllib2
+from PIL import Image 
 from instagram.client import InstagramAPI
 
 app = Flask(__name__) #import  Setting up the internal of the web server, app is the variable (a flask)
@@ -22,9 +24,16 @@ def location_recent_media():
 	endpoint="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&access_token="+access_token
 	r = requests.get(endpoint)
 	data = json.loads(r.text)
-	#for img in data['data']:
-		#if data['data']['id'] > 1:
-	return data['data'][0]['images']['standard_resolution']['url']
+	#print pic_url= data['data'][0]['images']['standard_resolution']['url']
+	for img in data['data']:
+			pic_url=data['data'][0]['images']['standard_resolution']['url']
+			with urllib.urlopen('pic_url') as url:
+				with open('temp.jpg','wb') as f:
+					f.write(url.read())
+			pic_url = Image.open('temp.jpg')
+			img.show()
+
+
 	
 
 	#image = data['data'][0]['images']['standard_resolution']['url']
