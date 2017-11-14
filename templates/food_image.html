@@ -4,6 +4,9 @@
 		<title>Foodprint</title>
 </head>
 <body>
-<img src="{{image_url}}" alt="User Image">
+{% for img in img_urls %}
+	<img src="{{image_url}}" alt="User Image">
+{% endfor %}
+	
 </body>
 </html>
