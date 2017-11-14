@@ -26,7 +26,7 @@ def location_recent_media():
 	for img in data['data']:
 		url = img['images']['standard_resolution']['url']
 		image_urls.append(url)
-	return image_urls.join(',')
+	return ','.join(image_urls) 
 
 	#print pic_url= data['data'][0]['images']['standard_resolution']['url']
 		
