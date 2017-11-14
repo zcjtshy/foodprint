@@ -34,7 +34,7 @@ def location_recent_media():
 	
 @app.route('/food_image')
 def food_image():
-	return render-template("food_image.html")
+	return render_template("food_image.html")
 
 @app.route('/example_data/')
 def example_data():
