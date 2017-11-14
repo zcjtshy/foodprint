@@ -8,17 +8,13 @@ app = Flask(__name__) #import  Setting up the internal of the web server, app is
 
 @app.route("/",strict_slashes=False) 
 def foodprint_website():
-	return render_template("index.html")
+	return render_template("index2.html")
 	 
-@app.route("/index/<NumberOfIndex>/<hello>")  
-def index(NumberOfIndex, hello):
-	return int(NumberOfIndex)*hello 
-
-@app.route('/location_recent_media', methods=["GET"])
-@app.route('/location_recent_media/<image_urls>')
+@app.route('/top_1_restaurant', methods=["GET"])
+@app.route('/top_1_restaurant/<image_urls>')
 def location_recent_media(image_urls=0):
-	lat="51.507114863624"
-	lng="-0.12731805236353"
+	lat="51.5137947"
+	lng="-0.1314185"
 	access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
 	endpoint="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&access_token="+access_token
 	r = requests.get(endpoint)
@@ -28,11 +24,12 @@ def location_recent_media(image_urls=0):
 		url = img['images']['standard_resolution']['url']
 		image_urls.append(url)
 	','.join(image_urls) 
-	return render_template("food_image.html", image_urls=image_urls)
+	return render_template("index.html", image_urls=image_urls)
 
 	#print pic_url= data['data'][0]['images']['standard_resolution']['url']
 	#image = data['data'][0]['images']['standard_resolution']['url']
 	#return data['images']['standard_resolution']['url']
+
 	
 @app.route('/example_data/')
 def example_data():

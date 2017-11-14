@@ -20,7 +20,11 @@
 				<h3>Restaurant 1 </h3> <!-- insert if/else with api for best restaurant location !-->
 			</div>
 			<div class="col-md-4">
-				<p> pic </p> <!-- insert api to show corresponding instagram picture !-->
+				<p> 
+					{% for img in image_urls %}
+						<img src="{{img}}" alt="User Image">
+					{% endfor %} 
+				</p> <!-- insert api to show corresponding instagram picture !-->
 			</div>
 			<div class="col-md-4">
 				<img src ="london_map.jpg" alt="map of london"> <!-- insert google maps api here !-->
