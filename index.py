@@ -15,7 +15,7 @@ def index(NumberOfIndex, hello):
 	return int(NumberOfIndex)*hello 
 
 @app.route('/location_recent_media', methods=["GET"])
-@app.route('/location_recent_media/<img>>')
+@app.route('/location_recent_media/<img>')
 def location_recent_media(img):
 	lat="51.507114863624"
 	lng="-0.12731805236353"
