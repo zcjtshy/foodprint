@@ -29,15 +29,13 @@ def location_recent_media():
 	return ','.join(image_urls) 
 
 	#print pic_url= data['data'][0]['images']['standard_resolution']['url']
-		
-
 	#image = data['data'][0]['images']['standard_resolution']['url']
 	#return data['images']['standard_resolution']['url']
-				
-	#print data
-	#return ['data']['meta']['code']
-	#data['images']['standard_resolution']['url']
-	 		
+	
+@app.route('/food_image')
+def food_image():
+	return render-template("food_image.html")
+
 @app.route('/example_data/')
 def example_data():
 	location = "London"
