@@ -15,7 +15,8 @@ def index(NumberOfIndex, hello):
 	return int(NumberOfIndex)*hello 
 
 @app.route('/location_recent_media', methods=["GET"])
-def location_recent_media():
+@app.route/('location_recent_media/<img>')
+def location_recent_media(img):
 	lat="51.507114863624"
 	lng="-0.12731805236353"
 	access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
@@ -27,7 +28,7 @@ def location_recent_media():
 		url = img['images']['standard_resolution']['url']
 		image_urls.append(url)
 	','.join(image_urls) 
-	return render_template("food_image.html")
+	return render_template("food_image.html", img=image_urls)
 
 	#print pic_url= data['data'][0]['images']['standard_resolution']['url']
 	#image = data['data'][0]['images']['standard_resolution']['url']
