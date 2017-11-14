@@ -15,8 +15,8 @@ def index(NumberOfIndex, hello):
 	return int(NumberOfIndex)*hello 
 
 @app.route('/location_recent_media', methods=["GET"])
-@app.route('/location_recent_media/<img>')
-def location_recent_media():
+@app.route('/location_recent_media/<img>>')
+def location_recent_media(img):
 	lat="51.507114863624"
 	lng="-0.12731805236353"
 	access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
