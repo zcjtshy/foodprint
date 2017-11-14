@@ -2,7 +2,6 @@ from flask import Flask, render_template, request #from --> model of something, 
 import requests #request is like flask, library
 import json
 from geoloc import coordinates 
-from PIL import Image 
 from instagram.client import InstagramAPI
 
 app = Flask(__name__) #import  Setting up the internal of the web server, app is the variable (a flask)
