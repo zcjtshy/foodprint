@@ -26,16 +26,13 @@ def location_recent_media():
 	for img in data['data']:
 		url = img['images']['standard_resolution']['url']
 		image_urls.append(url)
-	return ','.join(image_urls) 
+	','.join(image_urls) 
+	return render_template("food_image.html")
 
 	#print pic_url= data['data'][0]['images']['standard_resolution']['url']
 	#image = data['data'][0]['images']['standard_resolution']['url']
 	#return data['images']['standard_resolution']['url']
 	
-@app.route('/food_image')
-def food_image():
-	return render_template("food_image.html")
-
 @app.route('/example_data/')
 def example_data():
 	location = "London"
