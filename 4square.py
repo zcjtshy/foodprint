@@ -13,7 +13,7 @@ def search_food():
 
     data = json.loads(resp.text)
     items=data['response']['groups'][0]['items']
-  
+
     restaurants_info = []
     for item in items:
         restaurant_info = {
@@ -23,15 +23,12 @@ def search_food():
         }
         restaurants_info.append(restaurant_info)
     return restaurant_info
-    
 
-<<<<<<< HEAD
+
 #venue = data['response']['groups'][0]['items'][0]['venue']
 #print venue['name'
-=======
-venue = data['response']['groups'][0]['items'][0]['venue']
+
 #print venue['name']
->>>>>>> e0e721cfa7272b8395c7cd99e2cc11f5b93bef99
 #print venue['location']
 #[0].items[0].venue.name
 #for key, value in data['response'].iteritems() :
