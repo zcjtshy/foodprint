@@ -22,23 +22,21 @@ def top_1_restaurant(image_urls=0):
 	for img in data['data']:
 		url = img['images']['standard_resolution']['url']
 		image_urls.append(url)
-<<<<<<< HEAD
-	#','.join(image_urls) 
+
 	weather1 = get_weather()
-	return render_template("index3.html", image_urls=image_urls, weather_description=weather1)
-=======
-	#','.join(image_urls)
-	return render_template("index3.html", image_urls=image_urls)
->>>>>>> e0e721cfa7272b8395c7cd99e2cc11f5b93bef99
+	restaurants_info = search_food()
+	return render_template("index3.html", image_urls=image_urls,
+			weather_description=weather1, restaurants_info=restaurants_info)
+
 
 	#print pic_url= data['data'][0]['images']['standard_resolution']['url']
 	#image = data['data'][0]['images']['standard_resolution']['url']
 	#return data['images']['standard_resolution']['url']
 
-<<<<<<< HEAD
+
 def get_weather():
 	endpoint= "http://api.openweathermap.org/data/2.5/weather"
-	payload = {"q": London,UK, "units":"metric", "appid":"e93fd407cde06db0608ffb006ea09c8a"}
+	payload = {"q": 'London,UK', "units":"metric", "appid":"e93fd407cde06db0608ffb006ea09c8a"}
 
 	response = requests.get(endpoint, params=payload)
 	data = response.json()
@@ -47,11 +45,10 @@ def get_weather():
 	name = data["name"]
 	weather = data["weather"][0]["main"]
 
-    if temperature <=5:
-    	message = 'warm'
-    else:
-        message = 'to eat'         
-	    
+	if temperature <= 5:
+		message = 'warm'
+	else:
+		message = 'to eat'
 	return "It's {}C in {} today, grab something {}".format(temperature, name, message)
 	
 def search_food():
@@ -77,9 +74,7 @@ def search_food():
         restaurants_info.append(restaurant_info)
     return restaurant_info
 	
-=======
 
->>>>>>> e0e721cfa7272b8395c7cd99e2cc11f5b93bef99
 @app.route('/example_data/')
 def example_data():
 	location = "London"
