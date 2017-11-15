@@ -23,5 +23,5 @@ virtualenv==15.1.0
 Werkzeug==0.12.2
 psycopg2==2.5.3
 googlemaps==2.5.1
-
+geoloc 
 

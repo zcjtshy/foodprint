@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request #from --> model of something, library  of code which is Flask this time
 import requests #request is like flask, library
 import json
-from geoloc import coordinates 
+#from geoloc import coordinates 
 from instagram.client import InstagramAPI
 
 app = Flask(__name__) #import  Setting up the internal of the web server, app is the variable (a flask)
@@ -9,9 +9,8 @@ app = Flask(__name__) #import  Setting up the internal of the web server, app is
 @app.route("/",strict_slashes=False) 
 def foodprint_website():
 	return render_template("index2.html")
-	 
+
 @app.route('/top_1_restaurant', methods=["GET"])
-@app.route('/top_1_restaurant/<image_urls>')
 def top_1_restaurant(image_urls=0):
 	lat="51.5137947"
 	lng="-0.1314185"
@@ -23,7 +22,7 @@ def top_1_restaurant(image_urls=0):
 	for img in data['data']:
 		url = img['images']['standard_resolution']['url']
 		image_urls.append(url)
-	','.join(image_urls) 
+	#','.join(image_urls) 
 	return render_template("index.html", image_urls=image_urls)
 
 	#print pic_url= data['data'][0]['images']['standard_resolution']['url']
