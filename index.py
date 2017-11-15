@@ -50,7 +50,7 @@ def get_weather():
 	else:
 		message = 'to eat'
 	return "It's {}C in {} today, grab something {}".format(temperature, name, message)
-	
+
 def search_food():
     resp = requests.get(
                          "https://api.foursquare.com/v2/venues/explore",
@@ -63,17 +63,16 @@ def search_food():
 
     data = json.loads(resp.text)
     items=data['response']['groups'][0]['items']
-  
+
     restaurants_info = []
     for item in items:
         restaurant_info = {
             'name': item['venue']['name'],
             'rating': item['venue']['rating'],
-            'image': get_photos(item ['venue']['id']),
         }
         restaurants_info.append(restaurant_info)
     return restaurant_info
-	
+
 
 @app.route('/example_data/')
 def example_data():
