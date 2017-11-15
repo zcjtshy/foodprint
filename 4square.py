@@ -2,7 +2,7 @@ import requests,json
 
 
 def search_food():
-    return requests.get(
+    resp = requests.get(
                          "https://api.foursquare.com/v2/venues/explore",
                         params = dict(
                          client_id= "ND0RYQES1ZX3UHVOYMOP2SRUEEB1IJ4DGMURFGPWBGWY0VHT",
@@ -11,19 +11,27 @@ def search_food():
                         v= "20170801",
                         section= "food"))
 
-#print search_food().json()
-resp=search_food()
-data = json.loads(resp.text)
+    data = json.loads(resp.text)
+    items=data['response']['groups'][0]['items']
+  
+    restaurants_info = []
+    for item in items:
+        restaurant_info = {
+            'name': item['venue']['name'],
+            'rating': item['venue']['rating'],
+            'image': get_photos(item ['venue']['id']),
+        }
+        restaurants_info.append(restaurant_info)
+    return restaurant_info
+    
 
-
-items=data['response']['groups'][0]['items']
-
-for item in items:
-    print item['venue']['name'] + ' Rating: ' + str(item['venue']['rating'])
-venue_id=data['response']['groups'][0]['items'][0]['venue'] ['id']
-
+<<<<<<< HEAD
+#venue = data['response']['groups'][0]['items'][0]['venue']
+#print venue['name'
+=======
 venue = data['response']['groups'][0]['items'][0]['venue']
 #print venue['name']
+>>>>>>> e0e721cfa7272b8395c7cd99e2cc11f5b93bef99
 #print venue['location']
 #[0].items[0].venue.name
 #for key, value in data['response'].iteritems() :
