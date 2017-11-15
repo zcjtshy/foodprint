@@ -1,0 +1,21 @@
+<body>
+<h1>Food printing its way around the city</h1>
+<h2>London <h2>
+
+{% with %}
+
+{% set location=(51.509865, -0.118092) %}
+{% set style="width:500px;height:500px;"%}
+
+{{
+googlemap(
+    "simple-map",
+    location.0, location.1,
+    markers=[location,],
+    style=style
+    )
+ }}
+
+ {% endwith %}
+ </body>
+
