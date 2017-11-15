@@ -13,20 +13,9 @@ def foodprint_website():
 <<<<<<< HEAD
 @app.route('/top_1_restaurant', methods=["GET"])
 @app.route('/top_1_restaurant/<image_urls>')
-def location_recent_media(image_urls=0):
+def top_1_restaurant(image_urls=0):
 	lat="51.5137947"
 	lng="-0.1314185"
-=======
-@app.route("/index/<NumberOfIndex>/<hello>")  
-def index(NumberOfIndex, hello):
-	return int(NumberOfIndex)*hello 
-
-@app.route('/location_recent_media', methods=["GET"])
-@app.route('/location_recent_media/<img>')
-def location_recent_media(img):
-	lat="51.519587"
-	lng="-0.127012"
->>>>>>> c595ad227e4dc96546fc33bf9fedac350546b8e7
 	access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
 	endpoint="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&access_token="+access_token
 	r = requests.get(endpoint)
