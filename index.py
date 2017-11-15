@@ -17,8 +17,8 @@ def index(NumberOfIndex, hello):
 @app.route('/location_recent_media', methods=["GET"])
 @app.route('/location_recent_media/<img>')
 def location_recent_media(img):
-	lat="51.507114863624"
-	lng="-0.12731805236353"
+	lat="51.519587"
+	lng="-0.127012"
 	access_token = '2194526392.58afe6a.1d8c1a1924104bbb8175289c1100139a'
 	endpoint="http://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&access_token="+access_token
 	r = requests.get(endpoint)
