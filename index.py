@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request #from --> model of something, library  of code which is Flask this time
 import requests #request is like flask, library
 import json
-#from geoloc import coordinates 
+#from geoloc import coordinates
 from instagram.client import InstagramAPI
 
 app = Flask(__name__) #import  Setting up the internal of the web server, app is the variable (a flask)
 
-@app.route("/",strict_slashes=False) 
+@app.route("/",strict_slashes=False)
 def foodprint_website():
 	return render_template("index2.html")
 
@@ -22,14 +22,20 @@ def top_1_restaurant(image_urls=0):
 	for img in data['data']:
 		url = img['images']['standard_resolution']['url']
 		image_urls.append(url)
+<<<<<<< HEAD
 	#','.join(image_urls) 
 	weather1 = get_weather()
 	return render_template("index3.html", image_urls=image_urls, weather_description=weather1)
+=======
+	#','.join(image_urls)
+	return render_template("index3.html", image_urls=image_urls)
+>>>>>>> e0e721cfa7272b8395c7cd99e2cc11f5b93bef99
 
 	#print pic_url= data['data'][0]['images']['standard_resolution']['url']
 	#image = data['data'][0]['images']['standard_resolution']['url']
 	#return data['images']['standard_resolution']['url']
 
+<<<<<<< HEAD
 def get_weather():
 	endpoint= "http://api.openweathermap.org/data/2.5/weather"
 	payload = {"q": London,UK, "units":"metric", "appid":"e93fd407cde06db0608ffb006ea09c8a"}
@@ -71,6 +77,9 @@ def search_food():
         restaurants_info.append(restaurant_info)
     return restaurant_info
 	
+=======
+
+>>>>>>> e0e721cfa7272b8395c7cd99e2cc11f5b93bef99
 @app.route('/example_data/')
 def example_data():
 	location = "London"
@@ -81,17 +90,17 @@ def example_data():
 
 @app.route("/signup", methods=["POST"])
 def sign_up():
-	form_data = request.form 
-	print form_data["email"]  
+	form_data = request.form
+	print form_data["email"]
 	print requests.post(
        "https://api.mailgun.net/v3/sandbox628a63d1ccd742dd9ac51128b8c2ca53.mailgun.org/messages",
        auth=("api", "key-53a2b49ec0cae16153f7343713ebfc8d"),
        data={"from": "Excited User <mailgun@sandbox628a63d1ccd742dd9ac51128b8c2ca53.mailgun.org>",
-             "to": [form_data["email"],"YOU@sandbox628a63d1ccd742dd9ac51128b8c2ca53.mailgun.org"], 
+             "to": [form_data["email"],"YOU@sandbox628a63d1ccd742dd9ac51128b8c2ca53.mailgun.org"],
               "subject": "Hello",
               "text": "Testing some Mailgun awesomness!"}
-              ) 
-	return "Thanks for submitting!" 
+              )
+	return "Thanks for submitting!"
 
 if __name__ == '__main__':
-	app.run(debug=True) 
+	app.run(debug=True)
