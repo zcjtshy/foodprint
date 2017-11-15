@@ -9,8 +9,7 @@ app = Flask(__name__) #import  Setting up the internal of the web server, app is
 @app.route("/",strict_slashes=False) 
 def foodprint_website():
 	return render_template("index2.html")
-	 
-<<<<<<< HEAD
+
 @app.route('/top_1_restaurant', methods=["GET"])
 @app.route('/top_1_restaurant/<image_urls>')
 def top_1_restaurant(image_urls=0):
